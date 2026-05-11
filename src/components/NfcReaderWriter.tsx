@@ -261,7 +261,7 @@ export function NfcReaderWriter({ spool, onTagRead, onStatusUpdate }: NfcReaderW
       )}
 
       <p className="mt-2 text-[11px] text-amber-500">
-        ⚠ Web NFC may not be compatible with all printers. For guaranteed compatibility, use Export options with a dedicated NFC app.
+        ⚠ Web NFC may not be compatible with all phones. For guaranteed compatibility, use Export options with a dedicated NFC app.
       </p>
     </div>
   );
