@@ -18,7 +18,8 @@
 or
 
 - CORS option ist set in spoolman
-'
+  
+```
   spoolman:
     image: ghcr.io/donkie/spoolman:latest
     container_name: centauri-spoolman
@@ -32,5 +33,5 @@ or
     environment:
       - TZ=Europe/Berlin
       - SPOOLMAN_CORS_ORIGIN=http://172.31.0.3:5173 #IP and port of the elegoo-rfid-editor
-'
+```
   <img width="1849" height="1185" alt="Bildschirmfoto vom 2026-07-08 13-44-56" src="https://github.com/user-attachments/assets/c901e4e4-1f7b-4e26-82ae-8f5ab0009954" />
