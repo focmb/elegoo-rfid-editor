@@ -14,6 +14,28 @@
 
 - selfhosted spoolman (Docker)
 - spoolman and elegoo-rfid-editor are reachable via https (domains with real certificates)
+- VHost for Nginx Reverse Proxy
+
+```
+server {
+    listen 443 ssl;
+    http2 on;
+    server_name rfideditor.domain.de;
+    ssl_certificate ...;
+    ssl_certificate_key ...;
+
+    location / {
+        proxy_pass http://172.16.1.4:8092;  # port and ip from elegoo-rfid-editor docker container
+        proxy_set_header Host $host;
+    }
+
+    location /spoolman/ {
+        proxy_pass http://172.16.1.4:7912/; # port and ip from spoolman docker container
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+    }
+}
+```
 
 or
 
