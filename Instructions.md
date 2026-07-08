@@ -1,3 +1,5 @@
+# Changes made with support from claude
+
 # Changes to the original repo:
 
 - added spoolman integration
