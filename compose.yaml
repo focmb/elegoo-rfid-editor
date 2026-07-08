@@ -1,7 +1,7 @@
 services:
   elegoo-rfid-editor:
     build:
-      context: ./elegoo-rfid-editor
+      context: .
       dockerfile: Dockerfile
     container_name: centauri-rfid-editor
     restart: unless-stopped
