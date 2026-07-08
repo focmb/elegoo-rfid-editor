@@ -79,14 +79,22 @@ function mapSpoolToFields(spool: SpoolmanSpool): { fields: SpoolmanImportFields;
   };
 }
 
+const STORAGE_KEY = 'spoolman-import-base-url';
+
 interface SpoolmanImportProps {
   onImport: (fields: SpoolmanImportFields, sourceLabel: string) => void;
   onStatusUpdate: (message: string) => void;
 }
 
 export function SpoolmanImport({ onImport, onStatusUpdate }: SpoolmanImportProps) {
-  const [open, setOpen] = useState(false);
-  const [baseUrl, setBaseUrl] = useState('');
+  const [baseUrl, setBaseUrl] = useState(() => {
+    try {
+      return localStorage.getItem(STORAGE_KEY) ?? '';
+    } catch {
+      return '';
+    }
+  });
+  const [open, setOpen] = useState(() => baseUrl !== '');
   const [spools, setSpools] = useState<SpoolmanSpool[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -96,6 +104,11 @@ export function SpoolmanImport({ onImport, onStatusUpdate }: SpoolmanImportProps
     if (!base) {
       setError('Bitte Spoolman-URL eingeben.');
       return;
+    }
+    try {
+      localStorage.setItem(STORAGE_KEY, base);
+    } catch {
+      // localStorage nicht verfügbar (z.B. Privatmodus) - kein Problem, einfach ohne Persistenz weitermachen
     }
     setLoading(true);
     setError(null);
