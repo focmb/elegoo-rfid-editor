@@ -11,6 +11,7 @@ import { Header } from './components/Header';
 import { ActivityLog } from './components/ActivityLog';
 import { HexEditor } from './components/HexEditor';
 import { NfcReaderWriter, isWebNfcSupported } from './components/NfcReaderWriter';
+import { SpoolmanImport, type SpoolmanImportFields } from './components/SpoolmanImport';
 
 function App() {
   const [spool, setSpool] = useState<ElegooSpool | null>(null);
@@ -142,6 +143,23 @@ function App() {
     setSpool(new ElegooSpool(spool.getRawData()));
   };
 
+  const handleSpoolmanImport = (fields: SpoolmanImportFields, sourceLabel: string) => {
+    if (!spool) return;
+
+    spool.material = fields.material;
+    spool.subtype = fields.subtype;
+    spool.color = fields.color;
+    spool.weight = fields.weight;
+    spool.diameter = fields.diameter;
+    spool.minTemp = fields.minTemp;
+    spool.maxTemp = fields.maxTemp;
+
+    const newSpool = new ElegooSpool(spool.getRawData());
+    setSpool(newSpool);
+    setFileName(generateDefaultFileName(newSpool).replace('.bin', ''));
+    addLog(`Spoolman: Daten von "${sourceLabel}" übernommen`);
+  };
+
   const handleNfcTagRead = (data: Uint8Array) => {
     const newSpool = new ElegooSpool(data);
     setSpool(newSpool);
@@ -199,6 +217,9 @@ function App() {
           </div>
 
         </div>
+
+        {/* Spoolman Import */}
+        <SpoolmanImport onImport={handleSpoolmanImport} onStatusUpdate={addLog} />
 
         {/* Spool Configuration */}
         <div className="bg-white rounded-lg shadow-md p-4 mb-4">
