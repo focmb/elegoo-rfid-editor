@@ -30,7 +30,7 @@ export default defineConfig({
       }
     })
   ],
-  base: '/elegoo-rfid-editor/',
+  base: '/',
   build: {
     outDir: 'dist',
     sourcemap: true
