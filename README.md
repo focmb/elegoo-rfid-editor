@@ -5,6 +5,7 @@ Repo: https://github.com/focmb/elegoo-rfid-editor
 ## Inhaltsverzeichnis / Table of Contents
 
 **🇩🇪 Deutsch**
+- [Wichtig: Die richtigen NFC-Tags kaufen](#wichtig-die-richtigen-nfc-tags-kaufen)
 - [Variante 1: Lokal mit Node.js starten](#variante-1-lokal-mit-nodejs-starten)
 - [Variante 2: Docker (empfohlen für Dauerbetrieb)](#variante-2-docker-empfohlen-für-dauerbetrieb)
 - [Docker + Reverse Proxy mit HTTPS](#docker--reverse-proxy-mit-https-laut-instructionsmd)
@@ -12,6 +13,7 @@ Repo: https://github.com/focmb/elegoo-rfid-editor
 - [Kurzübersicht](#kurzübersicht)
 
 **🇬🇧 English**
+- [Important: Buying the right NFC tags](#important-buying-the-right-nfc-tags)
 - [Option 1: Run locally with Node.js](#option-1-run-locally-with-nodejs)
 - [Option 2: Docker (recommended for permanent use)](#option-2-docker-recommended-for-permanent-use)
 - [Docker + Reverse Proxy with HTTPS](#docker--reverse-proxy-with-https-per-instructionsmd)
@@ -30,6 +32,16 @@ Es gibt zwei Wege, das Tool zu betreiben:
 
 1. **Lokale Entwicklungsumgebung** (Node.js / npm)
 2. **Docker** (empfohlen für dauerhaften Betrieb, z. B. auf einem Homeserver/NAS)
+
+---
+
+## Wichtig: Die richtigen NFC-Tags kaufen
+
+Der Editor ist speziell für **NTAG213**-Chips gemacht. Nicht jeder als „NTAG213" beworbene Tag hält aber, was er verspricht — viele Billig-Chargen haben weniger nutzbaren Speicher als spezifiziert oder sind gar keine echten NXP-Chips. Achte beim Kauf auf Folgendes:
+
+- **Explizit „144 Byte User Memory" in der Produktbeschreibung suchen** — nicht 137, nicht 132, nicht „bis zu 144". Nur die volle Angabe von 144 Byte garantiert, dass genug beschreibbarer Speicher für den vollständigen Elegoo-Tag-Datensatz vorhanden ist.
+- **Idealerweise Angebote wählen, die ausdrücklich mit Amiibo-/TagMo-Kompatibilität werben** — dort wird meist strenger auf echte NXP-Chips mit vollen 144 Byte geachtet, weil diese Community sehr genau auf Chip-Echtheit prüft und unzuverlässige Chargen schnell in den Rezensionen durchfallen.
+- **Rezensionen gezielt nach Stichworten durchsuchen** wie „NDEF", „144 bytes", „vollständig beschreibbar" — das sind gute Indikatoren, dass andere Käufer den Speicher tatsächlich geprüft haben.
 
 ---
 
@@ -251,6 +263,16 @@ There are two ways to run the tool:
 
 1. **Local development setup** (Node.js / npm)
 2. **Docker** (recommended for permanent use, e.g. on a home server/NAS)
+
+---
+
+## Important: Buying the right NFC tags
+
+The editor is specifically built for **NTAG213** chips. However, not every tag advertised as "NTAG213" actually delivers what it claims — many cheap batches have less usable memory than specified, or aren't genuine NXP chips at all. When buying, pay attention to the following:
+
+- **Explicitly look for "144 byte User Memory" in the product description** — not 137, not 132, not "up to 144". Only the full 144-byte spec guarantees enough writable memory for the complete Elegoo tag data set.
+- **Ideally choose listings that explicitly advertise Amiibo/TagMo compatibility** — that community tends to scrutinize genuine NXP chips with the full 144 bytes much more closely, since they check chip authenticity very carefully and unreliable batches quickly get called out in reviews.
+- **Search reviews specifically for keywords** like "NDEF", "144 bytes", "fully writable" — these are good indicators that other buyers actually verified the memory.
 
 ---
 
