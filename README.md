@@ -22,6 +22,10 @@ Repo: https://github.com/focmb/elegoo-rfid-editor
 
 ---
 
+# Screenshot
+
+![Screenshot](screenshots/screen.png)
+
 # 🇩🇪 Deutsch
 
 Web-basierter Editor für Elegoo NTAG213 NFC-Spulen-Tags, mit zusätzlicher **Spoolman-Integration**. Läuft komplett im Browser, alle Daten bleiben lokal.
