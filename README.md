@@ -1,7 +1,5 @@
 # Elegoo RFID Tag Editor – Anleitung / Guide
 
-Repo: https://github.com/focmb/elegoo-rfid-editor
-
 ## Inhaltsverzeichnis / Table of Contents
 
 **🇩🇪 Deutsch**
